@@ -74,6 +74,50 @@
           color: blue;
         }
       }
+      
+      @media screen and (min-width: 450px) {
+        .dark_blue, .red, .orange {
+          width: 100%;
+        }
+        .light_blue, .green {
+          width: 50%;
+        }
+      }
+      
+      @media screen and (min-width: 550px) {
+        .dark_blue {
+          width: 100%;
+        }
+        .light_blue, .green {
+          width: 50%;
+        }
+        .red {
+          width: 33.33%;
+        } 
+        .orange {
+          width: 66.66%;
+        }
+      }
+      
+      @media screen and (min-width: 800px) {
+        .container {
+          width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .dark_blue {
+          width: 800px;
+        }
+        .light_blue, .green {
+          width: 400px;
+        }
+        .red {
+          width: 265px;
+        } 
+        .orange {
+          width: 535px;
+        }
+      }
     </style>
   </head>
   <body>
