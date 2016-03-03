@@ -194,13 +194,16 @@
       var menu = document.querySelector('#menu');
       var main = document.querySelector('main');
       var drawer = document.querySelector('#drawer');
+      var hero = document.querySelector('.hero');
 
       menu.addEventListener('click', function(e) {
         drawer.classList.toggle('open');
+        hero.classList.toggle('img-close');
         e.stopPropagation();
       });
       main.addEventListener('click', function() {
         drawer.classList.remove('open');
+        hero.classList.remove('img-close');
       });
 
     </script>

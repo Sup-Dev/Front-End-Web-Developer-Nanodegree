@@ -24,12 +24,12 @@ ul {
   padding: 0;
   margin: 0;
 }
-
+/*
 .container {
   display: flex;
   flex-wrap: wrap;
 }
-
+*/
 a#menu svg {
   width: 40px;
   fill: #000;
@@ -108,7 +108,9 @@ main {
 
 @media screen and (max-width: 450px) {
   .nav {
-    width: 300px;
+    width: 250px;
+    height: 100%;
+    position: absolute;
     -webkit-transform: translate(-300px, 0);
     transform: translate(-300px, 0);
     transition: transform 0.3s ease;    
@@ -125,17 +127,17 @@ main {
   }
 }
 
+@media screen and (min-width: 450px) {
+  .nav {
+    display: none;
+  }
+}
+
 /*
  *
  * Main
  *
  */
-@media screen and (max-width: 450px) {
-  main {
-    width: auto;
-    flex-grow: 1;
-  }
-}
 
 @media screen and (min-width: 450px) {
   main {
@@ -157,6 +159,11 @@ main {
  * Hero
  *
  */
+@media screen and (max-width: 450px) {
+  .img-close {
+    display: none;
+  }
+}
 
 .hero {
   float: left;
