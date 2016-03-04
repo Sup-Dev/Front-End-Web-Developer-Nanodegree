@@ -464,3 +464,22 @@ footer a {
     order: 1;
   }
 }
+
+@media screen and (min-width: 800px) {
+  .hero {
+    width: 50%;
+    order: 0;
+  }
+  .top-news {
+    width: 50%;
+    order: 1;
+  }
+  .scores {
+    width: 60%;
+    order: 2;
+  }
+  .weather {
+    width: 40%;
+    order: 3;
+  }
+}
