@@ -177,9 +177,13 @@ main {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
+  
+  .nav__item {
+    width: 100%;
+  }
  
   .light_grey {
-    background-color: #c0c0c0;
+    background-color: #f9f9f9;
     color: #efefef;
   }
 }
