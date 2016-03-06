@@ -7,7 +7,8 @@ body, html {
 
 body {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 1.2em;
   color: #424242;
 }
 
@@ -147,11 +148,6 @@ main {
  * Hero
  *
  */
-@media screen and (max-width: 530px) {
-  .img-close {
-    display: none;
-  }
-}
 
 .hero {
   float: left;
@@ -168,7 +164,7 @@ main {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   bottom: 0;
-  height: 40%;
+  height: 50%;
   width: 100%;
   color: #fff;
   padding: 1em;
@@ -184,7 +180,6 @@ main {
   float: right;
   width: 100%;
   height: 300px;
-  border-bottom: 1px solid #E0E0E0;
   padding: 1em;
 }
 
