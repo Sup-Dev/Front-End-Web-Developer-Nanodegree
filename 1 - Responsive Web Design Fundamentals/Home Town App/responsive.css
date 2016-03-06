@@ -1,0 +1,128 @@
+@media screen and (min-width: 530px) {
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/*
+ *
+ * Header
+ *
+ */
+
+@media screen and (max-width: 530px) {
+  .header {    
+    width: 100%;
+  }
+
+  .header__logo {
+    height: 40px;
+  }
+
+  .header__title {    
+    font-size: 2em;
+  }
+  
+  #hamburger {
+    font-size: 1.5em;
+    display: inline-block;
+    float: right;
+  }
+}
+
+@media screen and (min-width: 530px) {
+  #hamburger {
+    display: none;
+  }
+}
+
+/*
+ *
+ * Top Level Navigation
+ *
+ */
+
+@media screen and (max-width: 530px) {
+  .nav {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+    transition: transform 0.3s ease;    
+  }
+
+  .nav.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  
+  .nav__item {
+    width: 100%;
+  }
+ 
+  .light_grey {
+    background-color: #f9f9f9;
+    color: #efefef;
+  }
+}
+
+/*
+ *
+ * Main
+ *
+ */
+
+@media screen and (min-width: 530px) {
+  main {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*
+ *
+ * Media Queries
+ * 
+ */
+
+@media screen and (min-width: 530px) {
+  .hero {
+    width: 60%;
+    order: 0;
+  }
+  .weather {
+    width: 40%;
+    order: 1;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .hero {
+    width: 50%;
+    order: 0;
+  }
+  .top-news {
+    width: 50%;
+    order: 1;
+  }
+  .scores {
+    width: 60%;
+    order: 2;
+  }
+  .weather {
+    width: 40%;
+    order: 3;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .content, #drawer, .header__inner {
+    width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
