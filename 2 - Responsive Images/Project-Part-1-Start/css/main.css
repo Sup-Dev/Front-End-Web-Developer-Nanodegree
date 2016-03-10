@@ -17,8 +17,7 @@ body {
 }
 
 article {
-  min-width: 600px;
-  max-width: 1200px;
+  width: 50em;
 }
 
 h1 {
