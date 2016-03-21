@@ -10,6 +10,18 @@
   <script>
     var c = document.querySelector("#c");
     var ctx = c.getContext("2d");
+    
+    // create outer square
+    ctx.strokeRect(50, 50, 100, 100);
+    
+    // create inner triangle
+    ctx.beginPath();
+    ctx.moveTo(75, 75);
+    ctx.lineTo(125, 75);
+    ctx.lineTo(125, 125);
+    ctx.closePath();
+    ctx.fill();
+    
   </script>
 </body>
 </html>
