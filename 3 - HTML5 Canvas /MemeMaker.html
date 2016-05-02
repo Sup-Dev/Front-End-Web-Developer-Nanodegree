@@ -48,6 +48,27 @@
       var canvas = document.querySelector('canvas');
       var ctx = canvas.getContext("2d");
       // Your code here
+      if (image != null)
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+      
+      // text properties
+      ctx.font = "30pt Impact";
+      ctx.textAlign = "center";
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 3;
+      
+      // top line text
+      if (topLine != null) {
+        ctx.fillText(topLine, canvas.width/2, 40);
+        ctx.strokeText(topLine, canvas.width/2, 40);
+      }
+      
+      // bottom line text
+      if (bottomLine != null) {
+        ctx.fillText(bottomLine, canvas.width/2, canvas.height - 20);
+        ctx.strokeText(bottomLine, canvas.width/2, canvas.height - 20);
+      }
     }
     
     function saveFile() {
