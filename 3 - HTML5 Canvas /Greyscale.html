@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>GreyScale</title>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <style>
+    #image-container {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <input type="file" id="file" />  
+  </div>
+  <div id="image-container">
+    <canvas width="500" height="500"></canvas>
+    <div>
+      <button id="saveBtn">Save</button>
+    </div>
+  </div>
+  <script>    
+    function convertToGrey(image) {
+      // Get Canvas2DContext
+      var canvas = document.querySelector('canvas');
+      var ctx = canvas.getContext("2d");
+      // Your code here
+      if (image != null)
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+      
+      // Get image data
+      var data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      
+      var numPixels = data.data.length / 4;
+      
+      for (var i=0; i < numPixels; i++) {
+        var grey = Math.round(data.data[i*4 + 0] * 0.3 + data.data[i*4 + 1] * 0.59 + data.data[i*4 + 2] * 0.11);
+        data.data[i*4 + 0] = grey;
+        data.data[i*4 + 1] = grey;
+        data.data[i*4 + 2] = grey;
+      }
+      ctx.putImageData(data, 0, 0);
+      
+    }
+    
+    function saveFile() {
+      window.open(document.querySelector('canvas').toDataURL());
+    }
+    
+
+    function handleFileSelect(evt) {
+      var canvasWidth = 500;
+      var canvasHeight = 500;
+      var file = evt.target.files[0];
+      
+      
+      
+      var reader = new FileReader();
+      reader.onload = function(fileObject) {
+        var data = fileObject.target.result;
+        
+        // Create an image object
+        var image = new Image();
+        image.onload = function() {
+          
+          window.imageSrc = this;
+          convertToGrey(window.imageSrc);
+        }
+        
+        // Set image data to background image.
+        image.src = data;
+        console.log(fileObject.target.result);
+      };
+      reader.readAsDataURL(file)
+    }
+    
+    document.getElementById('file').addEventListener('change', handleFileSelect, false);
+    document.querySelector('button').addEventListener('click', saveFile, false);
+  </script>
+
+</body>
+</html>
