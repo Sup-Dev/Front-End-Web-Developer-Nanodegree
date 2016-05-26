@@ -30,29 +30,53 @@
         height: auto;
       }
       
-      .h2-resp {
+      .name {
+        float: left;
+      }
+      
+      .counter {
         float: right;
       }
     </style>
     
     <script>
-      var count = 0;
+      var counts = [0, 0, 0];
+      var cats = [['Aisha', 'https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426'],
+                 ['Bob', 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496'],
+                 ['Chi Chi', 'https://lh5.ggpht.com/LfjkdmOKkGLvCt-VuRlWGjAjXqTBrPjRsokTNKBtCh8IFPRetGaXIpTQGE2e7ZCUaG2azKNkz38KkbM_emA=s0#w=640&h=454']];
+      
+      // generate HTML
+      var generateBlock = function(num) {
+        var block = '<div id="block' + num.toString() + '" class="flex">';
+        block += '<h2>';
+        block += '<span class="name">' + cats[num-1][0] + '</span>';
+        block += '<span class="counter">0</span>';
+        block += '</h2>';
+        block += '<img class="img-resp" src="' + cats[num-1][1] + '">';
+        block += '</div>';
+        
+        return block;
+      }
       
       $(document).ready(function() {
-        $("#block1").click(function(e) {
-          count++;
-          $("#block1 .h2-resp").text(count);
-        });
+        for (var i=0; i < cats.length; i++) {
+          $('.container').append(generateBlock(i+1));
+          var count = counts[i];
+          $("#block"+ (i+1).toString()).click((function(e) {
+            e += 1;
+            counts[i] = e;
+            console.log(e);
+            console.log(i);
+            $("#block" + (i+1).toString() + " .counter").text(e);
+          })(count));
+        }
       });
     </script>
   </head>
   
   <body>
     <div class="container">
-      <div id="block1" class="flex">
-        <h2 class="h2-resp">0</h2>
-        <img class="img-resp" src="https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426">
-      </div>
+      
     </div>
   </body>
 </html>
