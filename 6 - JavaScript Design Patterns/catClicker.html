@@ -1,0 +1,58 @@
+<! DOCTYPE html>
+<html>
+  <head>
+    <title>Cat Clicker</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
+    <style>
+      .container {          
+        display: flex;
+        flex-wrap: wrap;          
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        margin-top: 10%;
+        width: 100%;
+        height: 100%;        
+      }
+      
+      .flex {        
+        width: 25%;        
+      }
+      
+      .img-resp {
+        width: 100%;
+        height: auto;
+      }
+      
+      .h2-resp {
+        float: right;
+      }
+    </style>
+    
+    <script>
+      var count = 0;
+      
+      $(document).ready(function() {
+        $("#block1").click(function(e) {
+          count++;
+          $("#block1 .h2-resp").text(count);
+        });
+      });
+    </script>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div id="block1" class="flex">
+        <h2 class="h2-resp">0</h2>
+        <img class="img-resp" src="https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426">
+      </div>
+    </div>
+  </body>
+</html>
