@@ -18,7 +18,8 @@ var model = {
       name: 'Chi Chi',
       imgSrc: 'https://lh5.ggpht.com/LfjkdmOKkGLvCt-VuRlWGjAjXqTBrPjRsokTNKBtCh8IFPRetGaXIpTQGE2e7ZCUaG2azKNkz38KkbM_emA=s0#w=640&h=454'
     }
-  ]
+  ],
+  admin: false
 };
 
 /* Octopus */
@@ -31,6 +32,7 @@ var octopus = {
     // initialize the views
     catListView.init();
     catView.init();
+    adminView.init();
   },
   
   getCurrentCat: function() {
@@ -48,6 +50,17 @@ var octopus = {
   incrementCounter: function() {
     model.currentCat.clickCount++;
     catView.render();
+  },
+  
+  adminState: function(state) {
+    console.log(state);
+    if (state) {
+      model.admin = true;
+      document.getElementById('admin').style.display = 'block';
+    } else {
+      model.admin = false;
+      document.getElementById('admin').style.display = 'none';
+    }
   }
 };
 
@@ -108,6 +121,44 @@ var catListView = {
     }
   }
 };
+
+var adminView = {
+  init: function() {
+    this.adminArea = document.getElementById("admin");
+    octopus.adminState(false);
+    
+    this.render();
+  },
+  
+  render: function() {
+    var adminButton = document.getElementById('admin-mode');
+    var cancelButton = document.getElementById('cancel');
+    var saveButton = document.getElementById('save');
+    var nameInput = document.getElementById('name');
+    var imgurlInput = document.getElementById('imgurl');
+    var clicksInput = document.getElementById('clicks');
+    
+    adminButton.addEventListener('click', function(e) {
+      octopus.adminState(true);
+      nameInput.value = model.currentCat.name;
+      imgurlInput.value = model.currentCat.imgSrc;
+      clicksInput.value = model.currentCat.clickCount;
+    });
+    
+    cancelButton.addEventListener('click', function(e) {
+      octopus.adminState(false);
+      nameInput.value = '';
+      imgurlInput.value = '';
+      clicksInput.value = '';
+    });
+    
+    saveButton.addEventListener('click', function(e) {
+      model.currentCat.name = nameInput.value;
+      model.currentCat.imgSrc = imgurlInput.value;
+      model.currentCat.clickCount = clicksInput.value;
+    });
+  }
+}
 
 // run the app
 octopus.init();
